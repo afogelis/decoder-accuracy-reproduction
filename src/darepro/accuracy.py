@@ -23,13 +23,15 @@ def sweep_accuracy(
     """
     results: list[AccuracyResult] = []
     for distance in distances:
-        probe = build_problem(distance=distance, physical_error_rate=error_rates[0],
-                              basis=basis, rotated=rotated)
+        probe = build_problem(
+            distance=distance, physical_error_rate=error_rates[0], basis=basis, rotated=rotated
+        )
         if probe.num_mechanisms > MAX_ENUMERABLE_MECHANISMS:
             print(f"skipping d={distance}: {probe.num_mechanisms} mechanisms exceed exact limit")
             continue
         for p in error_rates:
-            problem = build_problem(distance=distance, physical_error_rate=p,
-                                   basis=basis, rotated=rotated)
+            problem = build_problem(
+                distance=distance, physical_error_rate=p, basis=basis, rotated=rotated
+            )
             results.append(exact_accuracy(problem))
     return results

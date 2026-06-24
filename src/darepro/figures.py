@@ -25,10 +25,14 @@ def plot_ler_vs_p(results: Sequence[AccuracyResult], *, ax: Axes | None = None) 
         _, ax = plt.subplots(figsize=(7, 5))
     for distance, series in sorted(_by_distance(results).items()):
         ps = [r.physical_error_rate for r in series]
-        ax.plot(ps, [r.optimal_ler for r in series], marker="o",
-                label=f"optimal (d={distance})")
-        ax.plot(ps, [r.mwpm_ler for r in series], marker="s", linestyle="--",
-                label=f"MWPM (d={distance})")
+        ax.plot(ps, [r.optimal_ler for r in series], marker="o", label=f"optimal (d={distance})")
+        ax.plot(
+            ps,
+            [r.mwpm_ler for r in series],
+            marker="s",
+            linestyle="--",
+            label=f"MWPM (d={distance})",
+        )
     ax.set_xscale("log")
     ax.set_yscale("log")
     ax.set_xlabel("Physical error rate p")

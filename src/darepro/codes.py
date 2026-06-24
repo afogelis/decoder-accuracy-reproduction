@@ -16,7 +16,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-import numpy as np
 import pymatching
 import stim
 from decbench.dem_matrices import DemMatrices, dem_to_matrices
@@ -40,8 +39,9 @@ class CodeCapacityProblem:
         return self.matrices.num_detectors
 
 
-def build_problem(*, distance: int, physical_error_rate: float,
-                  basis: str = "Z", rotated: bool = True) -> CodeCapacityProblem:
+def build_problem(
+    *, distance: int, physical_error_rate: float, basis: str = "Z", rotated: bool = True
+) -> CodeCapacityProblem:
     """Construct a code-capacity surface-code problem at the given error rate."""
     task = f"surface_code:{'rotated' if rotated else 'unrotated'}_memory_{basis.lower()}"
     circuit = stim.Circuit.generated(

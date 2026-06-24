@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Decoder Accuracy Reproduction"
+abstract: "Reproduction of 'Testing the Accuracy of Surface Code Decoders' (arXiv:2311.12503): exact comparison of MWPM against the optimal maximum-likelihood decoder."
+type: software
+authors:
+  - family-names: "Fogelis"
+    given-names: "Andrew"
+version: "0.1.0"
+date-released: "2026-06-23"
+license: MIT
+repository-code: "https://github.com/afogelis/decoder-accuracy-reproduction"
+keywords:
+  - quantum-error-correction
+  - decoder
+  - maximum-likelihood
+  - reproduction
+  - mwpm

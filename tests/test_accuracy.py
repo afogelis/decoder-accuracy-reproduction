@@ -1,5 +1,3 @@
-import numpy as np
-
 from darepro.codes import build_problem
 from darepro.optimal import exact_accuracy
 

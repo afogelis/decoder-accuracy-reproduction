@@ -1,7 +1,7 @@
 """Reproduce the decoder-accuracy comparison and write the report.
 
-    darepro                       # defaults: distance 3, exact enumeration
-    darepro --distances 3,5 --p 0.02,0.05,0.1
+darepro                       # defaults: distance 3, exact enumeration
+darepro --distances 3,5 --p 0.02,0.05,0.1
 """
 
 from __future__ import annotations
@@ -120,8 +120,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         handle.write(_build_report(results))
 
     for r in results:
-        print(f"d={r.distance} p={r.physical_error_rate:.3f} "
-              f"optimal={r.optimal_ler:.4e} mwpm={r.mwpm_ler:.4e} ratio={r.suboptimality_ratio:.3f}")
+        print(
+            f"d={r.distance} p={r.physical_error_rate:.3f} "
+            f"optimal={r.optimal_ler:.4e} mwpm={r.mwpm_ler:.4e} ratio={r.suboptimality_ratio:.3f}"
+        )
     print(f"wrote figures to {args.figures_dir}/ and report to {report_path}")
     return 0
 

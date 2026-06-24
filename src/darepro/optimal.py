@@ -82,9 +82,13 @@ def exact_accuracy(problem: CodeCapacityProblem) -> AccuracyResult:
     logicals = (patterns @ observable.T) % 2  # (N, O)
 
     num_detectors = check.shape[0]
-    powers = (1 << np.arange(num_detectors, dtype=np.uint64))
-    syndrome_keys = (syndromes.astype(np.uint64) @ powers)  # (N,) unique int per syndrome
-    logical_keys = logicals[:, 0].astype(np.uint8) if observable.shape[0] else np.zeros(len(patterns), np.uint8)
+    powers = 1 << np.arange(num_detectors, dtype=np.uint64)
+    syndrome_keys = syndromes.astype(np.uint64) @ powers  # (N,) unique int per syndrome
+    logical_keys = (
+        logicals[:, 0].astype(np.uint8)
+        if observable.shape[0]
+        else np.zeros(len(patterns), np.uint8)
+    )
 
     optimal_correct = 0.0
     mwpm_correct = 0.0
