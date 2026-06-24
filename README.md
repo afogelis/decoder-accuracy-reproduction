@@ -22,27 +22,25 @@ makes the logical error rate of any decoder *exactly* computable:
 The ratio MWPM / optimal is the decoder's sub-optimality. It is provably >= 1 and grows with the
 physical error rate.
 
-## What this demonstrates
+## Scope
 
 - Implementing an **exact maximum-likelihood decoder** by error-coset enumeration.
-- Exact (sampling-free) logical error rates, and a rigorous decoder-quality metric.
+- Exact (sampling-free) logical error rates, and a decoder-quality metric.
 - Reproducing a recent methods paper and connecting it to the rest of the portfolio's decoders.
 
-## Why this matters (the portfolio's flagship algorithmic result)
+## Optimal-decoder bound
 
-Most decoder studies compare practical decoders against *each other*, which can only ever show that
-one heuristic beats another. This repository instead computes the **provably optimal** decoder for
-small codes and measures the exact gap to it. That is a fundamentally different and stronger claim:
+Many decoder studies compare practical decoders against *each other*. This repository computes the
+**provably optimal** decoder for small codes and measures the exact gap to it:
 
 - The maximum-likelihood decoder is implemented by enumerating every error pattern and summing the
   probability of each logical coset per syndrome. Its logical error rate is a **hard lower bound**
   that *no* decoder can beat -- not an estimate, and not subject to Monte Carlo sampling noise.
-- Measured against that bound, MWPM is shown to be **exactly optimal at distance 3** and to develop
+- Measured against that bound, MWPM was **exactly optimal at distance 3** and developed
   a small, quantifiable sub-optimality at distance 5 (a ratio of about 1.004 at p = 0.15).
 
-This is the genuinely algorithmic contribution of the portfolio: not a wrapper around an existing
-decoder library, but an independent ground-truth decoder used to certify how good matching really
-is. It directly validates the MWPM accuracy numbers reported in
+The maximum-likelihood decoder is implemented independently rather than wrapping an existing decoder
+library, and provides a ground-truth reference for the MWPM accuracy numbers reported in
 [`decoder-benchmark`](https://github.com/afogelis/decoder-benchmark).
 
 ## Install and run
