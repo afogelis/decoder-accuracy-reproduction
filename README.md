@@ -5,7 +5,7 @@ A reproduction of the methodology of *Testing the Accuracy of Surface Code Decod
 from the **optimal** maximum-likelihood decoder, which sets a hard lower bound on the logical error
 rate.
 
-This is repo 7 (capstone B) of a seven-part [QEC research portfolio](https://github.com/afogelis/qec-portfolio). It builds on
+This is repo 7 (capstone B) of a ten-part [QEC research portfolio](https://github.com/afogelis/qec-portfolio). It builds on
 [`surface-code-simulator`](https://github.com/afogelis/surface-code-simulator) and
 [`decoder-benchmark`](https://github.com/afogelis/decoder-benchmark), and directly validates the
 MWPM decoder benchmarked there.
