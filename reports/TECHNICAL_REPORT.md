@@ -50,13 +50,14 @@ and the gap is quantifiable.
 ## Limitations
 
 - Exact enumeration restricts the analysis to small distances (code-capacity, single round). The
-  paper uses tensor-network maximum-likelihood decoding to reach larger instances; the conclusion
-  -- a small, growing matching sub-optimality -- is the same.
+  paper builds exhaustive look-up tables for surface codes up to distance seven and compares both
+  MWPM and belief propagation against them; the conclusion here -- a small, growing matching
+  sub-optimality -- is reproduced on small instances by the same look-up-table principle.
 - The code-capacity model omits measurement errors and multi-round dynamics.
 
 ## References
 
-Higgott O, et al. Testing the Accuracy of Surface Code Decoders. arXiv:2311.12503, 2023.
+Maan AS, Paler A. Testing the Accuracy of Surface Code Decoders. arXiv:2311.12503, 2023.
 
 Dennis E, Kitaev A, Landahl A, Preskill J. Topological quantum memory. Journal of Mathematical
 Physics 2002; 43:4452-4505.
