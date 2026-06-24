@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "decoder-accuracy-reproduction"
+version = "0.1.0"
+description = "Reproduction of 'Testing the Accuracy of Surface Code Decoders' (arXiv:2311.12503): exact comparison of MWPM against the optimal maximum-likelihood decoder."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Andrew Fogelis" }]
+keywords = ["quantum-error-correction", "decoder", "maximum-likelihood", "reproduction", "mwpm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "surface-code-simulator @ git+https://github.com/afogelis/surface-code-simulator.git@v0.1.0",
+    "decoder-benchmark @ git+https://github.com/afogelis/decoder-benchmark.git@v0.1.0",
+    "stim>=1.13",
+    "pymatching>=2.1",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "pydantic>=2.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-cov>=4.1", "jupyter>=1.0", "nbformat>=5.9"]
+
+[project.scripts]
+darepro = "darepro.repro:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["darepro"]
